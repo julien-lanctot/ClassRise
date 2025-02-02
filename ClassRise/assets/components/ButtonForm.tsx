@@ -6,14 +6,16 @@ type ButtonFormProps = {
 
 const ButtonForm = (props: ButtonFormProps) => {
   return (
-    <>
+    
       <div className="group vertical">
         <button className="white">{props.buttonTexts[0]}</button>
         <button className="grey">Button</button>
         <button className="green">Button</button>
       </div>
-    </>
+    
   );
 };
 
 export default ButtonForm;
+
+//test
