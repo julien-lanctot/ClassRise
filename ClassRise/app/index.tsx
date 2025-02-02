@@ -4,10 +4,11 @@ import { Text, View } from "react-native";
 
 export default function Index() {
   // This is a comment explaining stuff
-
   const onButtonClick = () => {
     console.log("I click a button");
+    console.log("some more code");
   };
+
   return (
     <View
       style={{
