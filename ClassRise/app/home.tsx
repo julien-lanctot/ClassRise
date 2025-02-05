@@ -1,6 +1,7 @@
-import Button1 from "@/assets/components/Button1";
 import ButtonForm from "@/assets/components/ButtonForm";
 import { Text, View } from "react-native";
+import GenericButton from "@/assets/components/GenericButton";
+import RadioButtonForm from "@/assets/components/RadioButtonForm";
 
 export default function Index() {
   // This is a comment explaining stuff
@@ -20,8 +21,8 @@ export default function Index() {
       <link rel="stylesheet" href="https://startr.style/style.css"></link>
       <Text>Welcome to ClassRise</Text>
       <button>Big button</button>
-      <Button1 buttonText={"Big button"} onClick={onButtonClick} />
-      <ButtonForm buttonTexts={["first text"]} />
+      <GenericButton buttonText={"Big button"} onClick={onButtonClick} />
+      <RadioButtonForm />
     </View>
   );
 }
