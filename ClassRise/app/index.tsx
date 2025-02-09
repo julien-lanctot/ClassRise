@@ -22,7 +22,7 @@ export default function Index() {
       }}
     >
       <link rel="stylesheet" href="https://startr.style/style.css"></link>
-      <Text>Welcome to ClassRise</Text>
+      <Text style={styles.title}>Welcome to ClassRise</Text>
       <button>Big button</button>
       <GenericButton buttonText={"Big button"} onClick={onButtonClick} />
       <RadioButtonForm />
@@ -31,5 +31,12 @@ export default function Index() {
 }
 
 const styles = StyleSheet.create({
+  title:{
+    fontSize: 24,
+    fontWeight: "bold",
+    color: "#2c786c",
+    fontFamily: "serif",
+
+  }
 
 });
