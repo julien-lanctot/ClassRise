@@ -5,6 +5,7 @@ import { Text, View, StyleSheet, Image } from "react-native";
 import GenericButton from "@/assets/components/GenericButton";
 import RadioButtonForm from "@/assets/components/RadioButtonForm";
 
+
 export default function Index() {
   // This is a comment explaining stuff
   const onButtonClick = () => {
@@ -24,6 +25,7 @@ export default function Index() {
       {/*<link rel="stylesheet" href="https://startr.style/style.css"></link>*/}
       <Text style={styles.title}>Welcome to ClassRise</Text>
       <Image source={require("@/app/mascot.png")} style={styles.mascot} />
+      <button color="#5aaf9c">Get Started!</button>
       {/*<button>Big button</button>*/}
       {/*<GenericButton buttonText={"Big button"} onClick={onButtonClick} />*/}
       {/*<RadioButtonForm />*/}
@@ -41,8 +43,8 @@ const styles = StyleSheet.create({
   },
 
   mascot: {
-    width: 150,
-    height: 150,
+    width: 250,
+    height: 250,
     marginBottom: 20,
   }
 
