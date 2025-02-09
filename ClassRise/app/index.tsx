@@ -8,7 +8,7 @@ import RadioButtonForm from "@/assets/components/RadioButtonForm";
 export default function Index() {
   // This is a comment explaining stuff
   const onButtonClick = () => {
-    console.log("I click a button");
+    console.log("I click a button 1 2 3");
     console.log("some more code");
   };
 
