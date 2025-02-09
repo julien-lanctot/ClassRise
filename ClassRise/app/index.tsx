@@ -1,5 +1,7 @@
+
+import React from "react";
 import ButtonForm from "@/assets/components/ButtonForm";
-import { Text, View } from "react-native";
+import { Text, View, StyleSheet } from "react-native";
 import GenericButton from "@/assets/components/GenericButton";
 import RadioButtonForm from "@/assets/components/RadioButtonForm";
 
@@ -16,6 +18,7 @@ export default function Index() {
         flex: 1,
         justifyContent: "center",
         alignItems: "center",
+        backgroundColor: "#a7d7c5",
       }}
     >
       <link rel="stylesheet" href="https://startr.style/style.css"></link>
@@ -26,3 +29,7 @@ export default function Index() {
     </View>
   );
 }
+
+const styles = StyleSheet.create({
+
+});
