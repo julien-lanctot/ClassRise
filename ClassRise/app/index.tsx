@@ -35,7 +35,7 @@ export default function Index() {
 
 const styles = StyleSheet.create({
   title:{
-    fontSize: 24,
+    fontSize: 23,
     fontWeight: "bold",
     color: "#2c786c",
     fontFamily: "serif",
