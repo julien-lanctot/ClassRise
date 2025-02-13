@@ -4,13 +4,14 @@ import ButtonForm from "@/assets/components/ButtonForm";
 import { Text, View, StyleSheet, Image, TouchableOpacity } from "react-native";
 import GenericButton from "@/assets/components/GenericButton";
 import RadioButtonForm from "@/assets/components/RadioButtonForm";
+import { router } from "expo-router";
 
 
 export default function Index() {
   // This is a comment explaining stuff
   const onButtonClick = () => {
-    console.log("I click a button 1 2 3");
-    console.log("some more code");
+          router.navigate("./questionpage", { relativeToDirectory: false });
+
   };
 
   return (
@@ -32,6 +33,8 @@ export default function Index() {
       <TouchableOpacity style={styles.button} onPress={onButtonClick}>
       <Text style={styles.buttonText}>Get Started</Text>
       </TouchableOpacity>
+
+
       
       {/*<button>Big button</button>*/}
       {/*<GenericButton buttonText={"Big button"} onClick={onButtonClick} />*/}
