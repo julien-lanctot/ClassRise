@@ -21,7 +21,7 @@ export default function CorrectScreen() {
 
 const styles = StyleSheet.create({
     container: {
-//fill out here
+//fill out here for the style
     },
 
     correctText: {
