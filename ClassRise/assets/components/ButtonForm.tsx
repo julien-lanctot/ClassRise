@@ -23,7 +23,7 @@ const ButtonForm = (props: ButtonFormProps) => {
     if (selectedButton) {
       router.navigate("./newscreen", { relativeToDirectory: false });
     }
-    console.log("you haven't selected an option");
+    console.log("you haven't an option");
   };
 
   return (
