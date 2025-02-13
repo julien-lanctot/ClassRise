@@ -11,6 +11,17 @@ export default function Index() {
     
     return (
         <>
+
+        <View
+              style={{
+                flex: 1,
+                justifyContent: "center",
+                alignItems: "center",
+                backgroundColor: "#a7d7c5",
+              }}
+            >
+
+            
         <Text style={styles.question}>
                1+1 = ?
               </Text>
@@ -18,6 +29,7 @@ export default function Index() {
         <input type="text" id="name" name="name" />
         <button> Submit Answer! </button>
 
+        </View>
         
         </>
     ) 
