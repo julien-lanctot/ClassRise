@@ -3,6 +3,7 @@ import { Text, View, StyleSheet, Image, TouchableOpacity, TextInput } from "reac
 import { router } from "expo-router";
 import { useRouter } from "expo-router";
 import { useEffect } from "react";
+//changes here
 
 
 {/*type ButtonProps = {
@@ -11,7 +12,7 @@ import { useEffect } from "react";
   };*/}
 
 
-
+//changes here
 const questions = [
     { question: "What is 1 + 1?", answer: "2" },
     { question: "What is 3 × 3?", answer: "9" },
@@ -21,26 +22,30 @@ const questions = [
 ];
 
 export default function Index() {
-
+//changes here
 const router = useRouter();
-const [currentQuestion, setCurrentQuestion] = useState<{ question: string; answer: string } | null>(null);
+const [currentQuestion, setCurrentQuestion] = useState(questions[Math.floor(Math.random() * questions.length)]);
 const [answer, setAnswer] = useState("");
 
-useEffect(() => {
-    setCurrentQuestion(questions[Math.floor(Math.random() * questions.length)]);
-}, []);
+const pickNewQuestion = () => {
+    const newQuestion = questions[Math.floor(Math.random() * questions.length)];
+    setCurrentQuestion(newQuestion);
+    setAnswer("");
+};
+//changes here
 
       const onButtonClick = (isCorrect: boolean) => {
         if (isCorrect) {
+            pickNewQuestion();
             router.navigate("./correctpage", { relativeToDirectory: false });
         } 
         else {
             router.navigate("./incorrectpage", { relativeToDirectory: false });
         }
-
+//changes here
     
       };
-    
+
     return (
         <>
 
@@ -57,11 +62,13 @@ useEffect(() => {
         <Text style={styles.question}>
         {currentQuestion ? currentQuestion.question : "Loading..."}
               </Text>
-
+{/*changes here*/}
         <TextInput id="name" style={styles.input} placeholder="Type your answer" keyboardType="numeric" value={answer} onChangeText={setAnswer}/>
         <TouchableOpacity style={styles.button} onPress={() => onButtonClick(answer.trim() === currentQuestion?.answer)}>
             <Text style={styles.buttonText}>Check Answer!</Text>
         </TouchableOpacity>
+
+{/*changes here*/}
 
         </View>
         
