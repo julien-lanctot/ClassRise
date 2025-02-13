@@ -73,7 +73,8 @@ const styles = StyleSheet.create({
     fontSize: 16,
     color: "#2c786c",
     textAlign: "center",
-    marginBottom: 30
+    marginBottom: 30,
+    marginHorizontal: 30
   },
 
 });
