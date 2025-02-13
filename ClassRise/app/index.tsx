@@ -1,17 +1,11 @@
-
 import React from "react";
-import ButtonForm from "@/assets/components/ButtonForm";
 import { Text, View, StyleSheet, Image, TouchableOpacity } from "react-native";
-import GenericButton from "@/assets/components/GenericButton";
-import RadioButtonForm from "@/assets/components/RadioButtonForm";
 import { router } from "expo-router";
-
 
 export default function Index() {
   // This is a comment explaining stuff
   const onButtonClick = () => {
-          router.navigate("./questionpage", { relativeToDirectory: false });
-
+    router.navigate("./questionpage", { relativeToDirectory: false });
   };
 
   return (
@@ -31,25 +25,18 @@ export default function Index() {
       </Text>
 
       <TouchableOpacity style={styles.button} onPress={onButtonClick}>
-      <Text style={styles.buttonText}>Get Started</Text>
+        <Text style={styles.buttonText}>Get Started</Text>
       </TouchableOpacity>
-
-
-      
-      {/*<button>Big button</button>*/}
-      {/*<GenericButton buttonText={"Big button"} onClick={onButtonClick} />*/}
-      {/*<RadioButtonForm />*/}
     </View>
   );
 }
 
 const styles = StyleSheet.create({
-  title:{
+  title: {
     fontSize: 23,
     fontWeight: "bold",
     color: "#2c786c",
     fontFamily: "serif",
-
   },
 
   mascot: {
@@ -63,7 +50,6 @@ const styles = StyleSheet.create({
     paddingVertical: 12,
     paddingHorizontal: 30,
     borderRadius: 25,
-
   },
 
   buttonText: {
@@ -77,7 +63,6 @@ const styles = StyleSheet.create({
     color: "#2c786c",
     textAlign: "center",
     marginBottom: 30,
-    marginHorizontal: 30
+    marginHorizontal: 30,
   },
-
 });
