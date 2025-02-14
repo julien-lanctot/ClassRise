@@ -8,7 +8,7 @@ const JulienExamples = () => {
   // This function changes the text
   // and then prints the new text in the console
   const changeText = () => {
-    questionText = "some other text";
+    questionText = "other text";
     console.log(questionText);
   };
 
