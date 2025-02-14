@@ -1,14 +1,19 @@
-import React from "react";
+import React, { useState } from "react";
 import { Text, View, StyleSheet } from "react-native";
 
 const JulienExamples = () => {
   // I have a variable with some text
   let questionText = "some text";
+  const [stateQuestionText, setStateQuestionText] = useState(questionText);
 
   // This function changes the text
   // and then prints the new text in the console
   const changeText = () => {
+<<<<<<< Updated upstream
     questionText = "other text";
+=======
+    setStateQuestionText("some other text");
+>>>>>>> Stashed changes
     console.log(questionText);
   };
 
@@ -23,7 +28,7 @@ const JulienExamples = () => {
           backgroundColor: "#a7d7c5",
         }}
       >
-        <Text style={styles.question}>{questionText}</Text>
+        <Text style={styles.question}>{stateQuestionText}</Text>
         <button onClick={changeText}> Change the text </button>
       </View>
     </>
