@@ -26,7 +26,7 @@ export default function CorrectScreen() {
 const styles = StyleSheet.create({
     question:{
       fontSize: 24,
-      color: "#2c786c",
+      color: "#ed3e3e",
       textAlign: "center",
       marginBottom: 30,
       marginHorizontal: 30
@@ -46,7 +46,7 @@ const styles = StyleSheet.create({
     },
   
     button: {
-      backgroundColor: "#2c786c",
+      backgroundColor: "#ed3e3e",
       paddingVertical: 12,
       paddingHorizontal: 30,
       borderRadius: 10,
@@ -62,7 +62,7 @@ const styles = StyleSheet.create({
         flex: 1,
         justifyContent: "center",
         alignItems: "center",
-        backgroundColor: "#d45353",
+        backgroundColor: "#f79797",
     }
   
   });

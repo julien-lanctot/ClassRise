@@ -54,7 +54,7 @@ const pickNewQuestion = () => {
                 flex: 1,
                 justifyContent: "center",
                 alignItems: "center",
-                backgroundColor: "#a7d7c5",
+                backgroundColor: "#9ccdff",
               }}
             >
 
@@ -80,7 +80,7 @@ const pickNewQuestion = () => {
 const styles = StyleSheet.create({
   question:{
     fontSize: 24,
-    color: "#2c786c",
+    color: "#3057c2",
     textAlign: "center",
     marginBottom: 30,
     marginHorizontal: 30
@@ -90,7 +90,7 @@ const styles = StyleSheet.create({
   input: {
     width: "80%",
     height: 50,
-    borderColor: "#2c786c",
+    borderColor: "#3057c2",
     borderWidth: 1,
     borderRadius: 10,
     paddingHorizontal: 15,
@@ -100,7 +100,7 @@ const styles = StyleSheet.create({
   },
 
   button: {
-    backgroundColor: "#2c786c",
+    backgroundColor: "#3057c2",
     paddingVertical: 12,
     paddingHorizontal: 30,
     borderRadius: 10,
