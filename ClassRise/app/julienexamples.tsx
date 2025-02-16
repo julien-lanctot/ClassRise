@@ -9,11 +9,7 @@ const JulienExamples = () => {
   // This function changes the text
   // and then prints the new text in the console
   const changeText = () => {
-<<<<<<< Updated upstream
-    questionText = "other text";
-=======
     setStateQuestionText("some other text");
->>>>>>> Stashed changes
     console.log(questionText);
   };
 
