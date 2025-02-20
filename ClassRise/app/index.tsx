@@ -47,10 +47,11 @@ const styles = StyleSheet.create({
   },
 
   title: {
-    fontSize: 23,
+    fontSize: 40,
     fontWeight: "bold",
     color: "#2c786c",
     fontFamily: "serif",
+    textAlign: "center",
   },
 
   mascot: {
@@ -60,15 +61,15 @@ const styles = StyleSheet.create({
   },
 
   button: {
-    backgroundColor: "#2c786c",
-    paddingVertical: 12,
-    paddingHorizontal: 30,
+    backgroundColor: "rgba(44, 120, 108, 0.85)",
+    paddingVertical: 20,
+    paddingHorizontal: 35,
     borderRadius: 25,
   },
 
   buttonText: {
-    color: "##ffffff",
-    fontSize: 16,
+    color: "white",
+    fontSize: 25,
     fontWeight: "bold",
   },
 
@@ -78,5 +79,10 @@ const styles = StyleSheet.create({
     textAlign: "center",
     marginBottom: 30,
     marginHorizontal: 30,
+    backgroundColor: "rgba(255, 255, 255, 0.7)",
+    paddingVertical: 8,
+    paddingHorizontal: 12,
+    borderRadius: 10,
+    fontWeight: "bold",
   },
 });
