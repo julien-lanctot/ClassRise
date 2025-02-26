@@ -30,6 +30,12 @@ return (
               <Text style={styles.buttonText}>{option}</Text>
               </TouchableOpacity>
       ))}
+
+{index === questions.length - 1 && (
+        <TouchableOpacity style={styles.finishButton} onPress={onButtonClick}>
+          <Text style={styles.buttonText}>Finish</Text>
+        </TouchableOpacity>
+      )}
       </View>
 
 );
@@ -53,7 +59,12 @@ const styles = StyleSheet.create({
 
   },
 
-
+  finishButton:{
+    backgroundColor: "rgba(44, 120, 108, 0.85)",
+    paddingVertical: 20,
+    paddingHorizontal: 35,
+    borderRadius: 25,
+  },
 
   button: {
     backgroundColor: "rgba(44, 120, 108, 0.85)",

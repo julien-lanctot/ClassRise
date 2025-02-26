@@ -5,7 +5,7 @@ import { router } from "expo-router";
 export default function Index() {
   // This is a comment explaining stuff
   const onButtonClick = () => {
-    router.navigate("./questionpage", { relativeToDirectory: false });
+    router.navigate("./quizscreen", { relativeToDirectory: false });
   };
 
   return (
