@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { View, Text, TouchableOpacity, StyleSheet } from "react-native";
+import { View, Text, TouchableOpacity, StyleSheet, ImageBackground  } from "react-native";
 import { router } from "expo-router";
 
  const onButtonClick = () => {
@@ -23,6 +23,13 @@ export default function QuizScreen() {
     };
 
 return (
+
+      <ImageBackground
+        source={require("./quizpic.png")}
+        style={styles.background}
+        resizeMode="cover"
+        
+        >
         <View style={styles.container}>
         <Text style={styles.question}>{questions[index].text}</Text>
         {questions[index].options.map((option) => (
@@ -38,6 +45,7 @@ return (
       )}
       </View>
 
+      </ImageBackground>
 );
 }
 
@@ -47,7 +55,6 @@ const styles = StyleSheet.create({
         justifyContent: "center",
         alignItems: "center",
         paddingHorizontal: 20,
-        backgroundColor: "#a8f7cc",
     },
 
   question:{
@@ -80,5 +87,11 @@ const styles = StyleSheet.create({
     color: "white",
     fontSize: 25,
     fontWeight: "bold",
+  },
+
+  background: {
+    flex: 1,
+    width: "100%",
+    height: "100%",
   },
 });
