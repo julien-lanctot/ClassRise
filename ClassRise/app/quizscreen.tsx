@@ -45,7 +45,7 @@ return (
 
 {index === questions.length - 1 && (
         <TouchableOpacity style={styles.finishButton} onPress={onButtonClick}>
-          <Text style={styles.buttonText}>Finish</Text>
+          <Text style={styles.buttonText}>Finish the Quiz</Text>
         </TouchableOpacity>
       )}
       </View>
@@ -77,10 +77,12 @@ const styles = StyleSheet.create({
   },
 
   finishButton:{
-    backgroundColor: "rgba(44, 120, 108, 0.85)",
+    backgroundColor: "rgba(103, 202, 187, 0.85)",
     paddingVertical: 20,
-    paddingHorizontal: 35,
+    paddingHorizontal: 20,
     borderRadius: 25,
+    width: 150,
+    marginVertical: 20,
   },
 
   button: {
@@ -98,6 +100,7 @@ const styles = StyleSheet.create({
     color: "white",
     fontSize: 25,
     fontWeight: "bold",
+    textAlign: "center",
   },
 
   background: {
