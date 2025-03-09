@@ -7,25 +7,40 @@ import { router } from "expo-router";
   };
 
 const questions = [
-{ text: "What grade are you in?", options: ["1st", "2nd", "3rd", "4th", "5th", "6th"] },
-  { text: "Do you find it really hard to sit still or stop fidgeting, even when you're supposed to?", options: ["Yes", "Sometimes", "No"] },
-  { text: "Do you get distracted easily, even when you're trying to pay attention?", options: ["Yes", "Sometimes", "No"] },
-  { text: "Do you forget what you're supposed to do, even right after someone tells you?", options: ["Yes", "Sometimes", "No"] },
-  { text: "Do you find reading really hard, even when you try your best?", options: ["Yes", "Sometimes", "No"] },
-  { text: "Do you mix up letters like 'b' and 'd' or have trouble spelling words correctly?", options: ["Yes", "Sometimes", "No"] },
-  { text: "Do you sometimes forget what you just read, even if you understood it while reading?", options: ["Yes", "Sometimes", "No"] },
-  { text: "Do numbers feel confusing, or do they seem to move around when you look at them?", options: ["Yes", "Sometimes", "No"] },
-  { text: "Is it hard to remember math facts, like 2 + 3 = 5?", options: ["Yes", "Sometimes", "No"] },
-  { text: "Do you get mixed up when you try to add or subtract in your head?", options: ["Yes", "Sometimes", "No"] },
+{ text: "What grade are you in?", options: ["1st", "2nd", "3rd", "4th", "5th", "6th"],category: "general"  },
+  { text: "Do you find it really hard to sit still or stop fidgeting, even when you're supposed to?", options: ["Yes", "Sometimes", "No"],category: "adhd" },
+  { text: "Do you get distracted easily, even when you're trying to pay attention?", options: ["Yes", "Sometimes", "No"], category: "adhd"},
+  { text: "Do you forget what you're supposed to do, even right after someone tells you?", options: ["Yes", "Sometimes", "No"],category: "adhd" },
+  { text: "Do you find reading really hard, even when you try your best?", options: ["Yes", "Sometimes", "No"],category: "dyslexia" },
+  { text: "Do you mix up letters like 'b' and 'd' or have trouble spelling words correctly?", options: ["Yes", "Sometimes", "No"],category: "dyslexia" },
+  { text: "Do you sometimes forget what you just read, even if you understood it while reading?", options: ["Yes", "Sometimes", "No"],category: "dyslexia" },
+  { text: "Do numbers feel confusing, or do they seem to move around when you look at them?", options: ["Yes", "Sometimes", "No"],category: "dyscalculia" },
+  { text: "Is it hard to remember math facts, like 2 + 3 = 5?", options: ["Yes", "Sometimes", "No"],category: "dyscalculia" },
+  { text: "Do you get mixed up when you try to add or subtract in your head?", options: ["Yes", "Sometimes", "No"],category: "dyscalculia" },
 ];
 
 export default function QuizScreen() {
     const [index, setIndex] = useState(0);
-    const handleNext = () => {
-        if (index < questions.length - 1) {
+
+    const [responses, setResponses] = useState<{ [key: string]: number }>({
+        adhd: 0,
+        dyslexia: 0,
+        dyscalculia: 0,
+      });
+    
+    const handleNext = (option: string, category: string) => {
+        if (category !== "general") {
+            setResponses((prev) => ({
+              ...prev,
+              [category]: prev[category] + (option === "Yes" ? 2 : option === "Sometimes" ? 2 : 0),
+            }));
+          }
+
+          if (index < questions.length - 1) {
             setIndex(index + 1);
+          } else { router.push({ pathname: "./resultsquiz", params: responses });
         }
-    };
+      };
 
 return (
 
@@ -38,16 +53,11 @@ return (
         <View style={styles.container}>
         <Text style={styles.question}>{questions[index].text}</Text>
         {questions[index].options.map((option) => (
-            <TouchableOpacity key={option} style={styles.button} onPress={handleNext}>
+            <TouchableOpacity key={option} style={styles.button} onPress={() => handleNext(option, questions[index].category)}>
               <Text style={styles.buttonText}>{option}</Text>
               </TouchableOpacity>
       ))}
 
-{index === questions.length - 1 && (
-        <TouchableOpacity style={styles.finishButton} onPress={onButtonClick}>
-          <Text style={styles.buttonText}>Finish the Quiz</Text>
-        </TouchableOpacity>
-      )}
       </View>
 
       </ImageBackground>
