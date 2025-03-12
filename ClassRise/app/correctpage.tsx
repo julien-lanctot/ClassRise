@@ -1,80 +1,61 @@
-{/*changes here*/}
-
 import React from "react";
 import { Text, View, TouchableOpacity, ImageBackground, Image, StyleSheet } from "react-native";
 import { router } from "expo-router";
 
-
-
 export default function CorrectScreen() {
-
     const onButtonClick = () => {
         router.navigate("./questionpage", { relativeToDirectory: false });
     };
 
     return (
-     <ImageBackground
-     style={styles.question} 
-
-    >    
-        <View style={styles.question}>
-        <Image source={require("@/app/mascot.png")} style={styles.question} />
-        <Text style={styles.question}> Correct... </Text>
-        <TouchableOpacity style={styles.button} onPress={onButtonClick}>
-        <Text style={styles.buttonText}>Next Question</Text>
-        </TouchableOpacity>
+        <View style={styles.background}>
+            <View style={styles.container}>
+                <Text style={styles.correctText}>Correct!</Text>
+                <Image
+                    source={require("@/app/HappyFrog.png")}
+                    style={styles.mascot}
+                    resizeMode="contain" // Ensures the image scales properly
+                />
+                <TouchableOpacity style={styles.button} onPress={onButtonClick}>
+                    <Text style={styles.buttonText}>Next Question</Text>
+                </TouchableOpacity>
+            </View>
         </View>
-        </ImageBackground>
     );
 }
 
 const styles = StyleSheet.create({
- background: {
+    background: {
         flex: 1,
-        width: "100%",
-        height: "100%",
-  },
-  question:{
-    fontSize: 24,
-    color: "#95de95",
-    textAlign: "center",
-    marginBottom: 30,
-    marginHorizontal: 30
-
-  },
-
-  input: {
-    width: "80%",
-    height: 50,
-    borderColor: "#95de95",
-    borderWidth: 1,
-    borderRadius: 10,
-    paddingHorizontal: 15,
-    fontSize: 18,
-    textAlign: "center",
-    marginBottom: 20,
-  },
-
-
-
-  button: {
-    backgroundColor: "#95de95",
-    paddingVertical: 12,
-    paddingHorizontal: 30,
-    borderRadius: 10,
-    alignItems: "center",
-  },
-
-  buttonText: {
-    color: "#026e02",
-    fontSize: 18,
-    fontWeight: "bold",
-  },
- 
-  container: {
-    flex: 1,
-    justifyContent: "center",
-    alignItems: "center",
-    backgroundColor: "#38fc38",
-}
+        backgroundColor: "#aaeda1", // New background color
+        justifyContent: "center",
+        alignItems: "center",
+    },
+    container: {
+        alignItems: "center",
+    },
+    mascot: {
+        width: 300, // Adjust the width as needed
+        height: 300, // Adjust the height as needed
+        marginBottom: 20, // Space between mascot and button
+    },
+    correctText: {
+        fontSize: 35,
+        color: "#026e02", // Dark green for better contrast
+        textAlign: "center",
+        marginBottom: -30, // Space between text and mascot
+        fontWeight: "bold", // Make the text bold
+    },
+    button: {
+        backgroundColor: "#95de95",
+        paddingVertical: 12,
+        paddingHorizontal: 30,
+        borderRadius: 10,
+        alignItems: "center",
+    },
+    buttonText: {
+        color: "#026e02",
+        fontSize: 18,
+        fontWeight: "bold",
+    },
 });
