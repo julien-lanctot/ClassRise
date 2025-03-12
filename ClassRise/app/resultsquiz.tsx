@@ -16,9 +16,9 @@ const dyscalculia = Number(params.dyscalculia) || 0;
   const getDiagnosis = () => {
     let diagnosis = [];
 
-    if (adhd >= 4) diagnosis.push("Possible ADHD");
-    if (dyslexia >= 4) diagnosis.push("Possible Dyslexia");
-    if (dyscalculia >= 4) diagnosis.push("Possible Dyscalculia");
+    if (adhd >= 8) diagnosis.push("Possible ADHD");
+    if (dyslexia >= 8) diagnosis.push("Possible Dyslexia");
+    if (dyscalculia >= 8) diagnosis.push("Possible Dyscalculia");
 
     return diagnosis.length > 0 ? diagnosis.join(", ") : "No clear signs detected.";
   };

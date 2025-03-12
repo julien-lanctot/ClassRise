@@ -17,6 +17,32 @@ const questions = [
   { text: "Do numbers feel confusing, or do they seem to move around when you look at them?", options: ["Yes", "Sometimes", "No"],category: "dyscalculia" },
   { text: "Is it hard to remember math facts, like 2 + 3 = 5?", options: ["Yes", "Sometimes", "No"],category: "dyscalculia" },
   { text: "Do you get mixed up when you try to add or subtract in your head?", options: ["Yes", "Sometimes", "No"],category: "dyscalculia" },
+  { text: "Do you start tasks but have trouble finishing them?", options: ["Yes", "Sometimes", "No"], category: "adhd" },
+{ text: "Do you have trouble waiting your turn?", options: ["Yes", "Sometimes", "No"], category: "adhd" },
+{ text: "Do you interrupt others while they're talking?", options: ["Yes", "Sometimes", "No"], category: "adhd" },
+{ text: "Do you lose things often, like homework or pencils?", options: ["Yes", "Sometimes", "No"], category: "adhd" },
+{ text: "Do you feel like your brain is always racing with thoughts?", options: ["Yes", "Sometimes", "No"], category: "adhd" },
+{ text: "Do you find it hard to follow multiple steps in a row?", options: ["Yes", "Sometimes", "No"], category: "adhd" },
+{ text: "Do you often daydream when you should be paying attention?", options: ["Yes", "Sometimes", "No"], category: "adhd" },
+{ text: "Do you feel like you need to move around a lot, even when you're not supposed to?", options: ["Yes", "Sometimes", "No"], category: "adhd" },
+{ text: "Do you struggle to stay organized?", options: ["Yes", "Sometimes", "No"], category: "adhd" },
+{ text: "Do you have trouble sounding out new words?", options: ["Yes", "Sometimes", "No"], category: "dyslexia" },
+{ text: "Do you find it hard to remember the sounds letters make?", options: ["Yes", "Sometimes", "No"], category: "dyslexia" },
+{ text: "Do you skip words or lose your place when reading?", options: ["Yes", "Sometimes", "No"], category: "dyslexia" },
+{ text: "Do you have trouble writing your thoughts down clearly?", options: ["Yes", "Sometimes", "No"], category: "dyslexia" },
+{ text: "Do you find it easier to understand stories when you hear them rather than read them?", options: ["Yes", "Sometimes", "No"], category: "dyslexia" },
+{ text: "Do you find rhyming words difficult?", options: ["Yes", "Sometimes", "No"], category: "dyslexia" },
+{ text: "Do you struggle with remembering how words are spelled?", options: ["Yes", "Sometimes", "No"], category: "dyslexia" },
+{ text: "Do you have trouble understanding place value (like knowing that 50 is bigger than 5)?", options: ["Yes", "Sometimes", "No"], category: "dyscalculia" },
+{ text: "Do you find it hard to recognize patterns in numbers?", options: ["Yes", "Sometimes", "No"], category: "dyscalculia" },
+{ text: "Do you mix up numbers like 6 and 9 or 3 and 8?", options: ["Yes", "Sometimes", "No"], category: "dyscalculia" },
+{ text: "Do you struggle to read a clock with hands?", options: ["Yes", "Sometimes", "No"], category: "dyscalculia" },
+{ text: "Do you have trouble understanding word problems in math?", options: ["Yes", "Sometimes", "No"], category: "dyscalculia" },
+{ text: "Do you find it hard to remember multiplication tables?", options: ["Yes", "Sometimes", "No"], category: "dyscalculia" },
+{ text: "Do you struggle to count backward or subtract numbers?", options: ["Yes", "Sometimes", "No"], category: "dyscalculia" },
+{ text: "Do you get confused when using money or making change?", options: ["Yes", "Sometimes", "No"], category: "dyscalculia" },
+{ text: "Do you find it hard to estimate how long something will take?", options: ["Yes", "Sometimes", "No"], category: "dyscalculia" },
+
 ];
 
 export default function QuizScreen() {
@@ -32,7 +58,7 @@ export default function QuizScreen() {
         if (category !== "general") {
             setResponses((prev) => ({
               ...prev,
-              [category]: prev[category] + (option === "Yes" ? 2 : option === "Sometimes" ? 2 : 0),
+              [category]: prev[category] + (option === "Yes" ? 2 : option === "Sometimes" ? 1 : 0),
             }));
           }
 
