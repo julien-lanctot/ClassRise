@@ -36,7 +36,7 @@ const styles = StyleSheet.create({
   },
   question:{
     fontSize: 24,
-    color: "##95de95",
+    color: "#95de95",
     textAlign: "center",
     marginBottom: 30,
     marginHorizontal: 30
@@ -55,11 +55,7 @@ const styles = StyleSheet.create({
     marginBottom: 20,
   },
 
-  mascot: {
-    width: 250,
-    height: 250,
-    marginBottom: 20,
-  },
+
 
   button: {
     backgroundColor: "#95de95",
