@@ -46,7 +46,7 @@ const styles = StyleSheet.create({
     },
     correctText: {
         fontSize: 35,
-        color: "#ed3e3e",
+        color: "#ffffff",
         textAlign: "center",
         marginBottom: -30,
         fontWeight: "bold",
