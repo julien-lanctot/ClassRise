@@ -9,7 +9,7 @@ export default function CorrectScreen() {
 
     return (
         <ImageBackground 
-            source={require("@/app/Incorrectbackground.png:\Users\Admin\Documents\Downloads\incorrect .png")} // Change background to your image
+            source={require("@/app/Incorrectbackground.png")} // Change background to your image
             style={styles.background}
             resizeMode="cover" // Ensures the image fills the background
         >
