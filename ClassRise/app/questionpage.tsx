@@ -1,116 +1,136 @@
-import React, { useState } from "react";
-import { Text, View, StyleSheet, Image, TouchableOpacity, TextInput } from "react-native";
-import { router } from "expo-router";
+import React, { useState, useEffect } from "react";
+import { Text, View, StyleSheet, TouchableOpacity } from "react-native";
 import { useRouter } from "expo-router";
-import { useEffect } from "react";
-//changes here
+import { useLocalSearchParams } from "expo-router";
 
-
-{/*type ButtonProps = {
-    buttonText: string;
-    onClick: () => void;
-  };*/}
-
-
-//changes here
-const questions = [
-    { question: "What is 1 + 1?", answer: "2" },
-    { question: "What is 3 × 3?", answer: "9" },
-    { question: "What is 10 ÷ 2?", answer: "5" },
-    { question: "What is 7 - 4?", answer: "3" },
-    { question: "What is 6 + 7?", answer: "13" },
+const normalQuestions = [
+    { question: "What is 2 + 3?", answer: "5", options: ["2", "4", "5", "6"] },
+    { question: "What is 6 - 2?", answer: "4", options: ["2", "3", "4", "5"] },
+    { question: "What is 9 ÷ 3?", answer: "3", options: ["2", "3", "4", "5"] },
+    { question: "What is 7 × 2?", answer: "14", options: ["10", "12", "14", "16"] },
+    { question: "What is 8 + 5?", answer: "13", options: ["10", "12", "13", "15"] },
+    { question: "What is 15 - 7?", answer: "8", options: ["6", "7", "8", "9"] },
+    { question: "What is 12 ÷ 4?", answer: "3", options: ["2", "3", "4", "5"] },
+    { question: "What is 9 × 3?", answer: "27", options: ["24", "27", "30", "33"] },
+    { question: "What is 20 ÷ 5?", answer: "4", options: ["3", "4", "5", "6"] },
+    { question: "What is 10 + 15?", answer: "25", options: ["20", "25", "30", "35"] },
+    { question: "What is 18 - 9?", answer: "9", options: ["7", "8", "9", "10"] },
+    { question: "What is 50 ÷ 10?", answer: "5", options: ["4", "5", "6", "7"] },
+    { question: "What is 30 + 25?", answer: "55", options: ["50", "55", "60", "65"] },
+    { question: "What is 14 × 3?", answer: "42", options: ["40", "42", "44", "46"] },
+    { question: "What is 100 - 50?", answer: "50", options: ["40", "50", "60", "70"] },
 ];
 
-export default function Index() {
-//changes here
-const router = useRouter();
-const [currentQuestion, setCurrentQuestion] = useState(questions[Math.floor(Math.random() * questions.length)]);
-const [answer, setAnswer] = useState("");
+const visualQuestions = [
+    { question: "🐟 + 🐟 = ?", answer: "🐟🐟", options: ["🐟", "🐟🐟", "🐟🐟🐟"] },
+    { question: "🦆 + 🦆 = ?", answer: "🦆🦆", options: ["🦆", "🦆🦆", "🦆🦆🦆"] },
+    { question: "🐸🐸 - 🐸 = ?", answer: "🐸", options: ["🐸", "🐸🐸", "🐸🐸🐸"] },
+    { question: "🐢 + 🐢 = ?", answer: "🐢🐢", options: ["🐢", "🐢🐢", "🐢🐢🐢"] },
+    { question: "🐠🐠 + 🐠 = ?", answer: "🐠🐠🐠", options: ["🐠", "🐠🐠", "🐠🐠🐠"] },
+    { question: "🦆🦆🦆 × 2 = ?", answer: "🦆🦆🦆🦆🦆🦆", options: ["🦆🦆", "🦆🦆🦆🦆🦆🦆", "🦆🦆🦆🦆"] },
+    { question: "🐸🐸🐸🐸 ÷ 2 = ?", answer: "🐸🐸", options: ["🐸", "🐸🐸", "🐸🐸🐸"] },
+    { question: "🐢 × 3 = ?", answer: "🐢🐢🐢", options: ["🐢", "🐢🐢", "🐢🐢🐢"] },
+    { question: "🐟🐟🐟🐟 ÷ 2 = ?", answer: "🐟🐟", options: ["🐟", "🐟🐟", "🐟🐟🐟"] },
+    { question: "🐢🐢🐢 + 🐢 = ?", answer: "🐢🐢🐢🐢", options: ["🐢", "🐢🐢", "🐢🐢🐢🐢"] },
+    { question: "🦆🦆🦆 - 🦆 = ?", answer: "🦆🦆", options: ["🦆", "🦆🦆", "🦆🦆🦆"] },
+    { question: "🐟🐟🐟🐟🐟 ÷ 5 = ?", answer: "🐟", options: ["🐟", "🐟🐟", "🐟🐟🐟"] },
+    { question: "🦆🦆🦆🦆🦆🦆 × 0 = ?", answer: "0", options: ["0", "🦆", "🦆🦆"] },
+];
 
-const pickNewQuestion = () => {
-    const newQuestion = questions[Math.floor(Math.random() * questions.length)];
-    setCurrentQuestion(newQuestion);
-    setAnswer("");
-};
-//changes here
+export default function QuestionPage() {
+    const router = useRouter();
+    const params = useLocalSearchParams();
+    const dyslexia = Number(params.dyslexia) || 0;
+    const dyscalculia = Number(params.dyscalculia) || 0;
 
-      const onButtonClick = (isCorrect: boolean) => {
-        if (isCorrect) {
+    const questionSet = dyslexia > 0 || dyscalculia > 0 ? visualQuestions : normalQuestions;
+
+    const [remainingQuestions, setRemainingQuestions] = useState([...questionSet]);
+    const [currentQuestion, setCurrentQuestion] = useState(remainingQuestions[0]);
+    const [options, setOptions] = useState<string[]>([]);
+
+    useEffect(() => {
+        setOptions([...currentQuestion.options].sort(() => Math.random() - 0.5));
+    }, [currentQuestion]);
+
+    const pickNewQuestion = () => {
+        if (remainingQuestions.length === 0) {
+            setRemainingQuestions([...questionSet]);
+        }
+
+        const newRemaining = remainingQuestions.filter(q => q !== currentQuestion);
+        if (newRemaining.length > 0) {
+            const newQuestion = newRemaining[Math.floor(Math.random() * newRemaining.length)];
+            setRemainingQuestions(newRemaining);
+            setCurrentQuestion(newQuestion);
+        } else {
+            setRemainingQuestions([...questionSet]);
+            setCurrentQuestion(questionSet[0]);
+        }
+    };
+
+    const onButtonClick = (selectedAnswer: string) => {
+        if (selectedAnswer === currentQuestion.answer) {
             pickNewQuestion();
             router.navigate("./correctpage", { relativeToDirectory: false });
-        } 
-        else {
+        } else {
             router.navigate("./incorrectpage", { relativeToDirectory: false });
         }
-//changes here
-    
-      };
+    };
 
     return (
         <>
+            <View style={styles.container}>
+                <Text style={styles.question}>
+                    {currentQuestion ? currentQuestion.question : "Loading..."}
+                </Text>
 
-        <View
-              style={{
-                flex: 1,
-                justifyContent: "center",
-                alignItems: "center",
-                backgroundColor: "#9ccdff",
-              }}
-            >
-
-            
-        <Text style={styles.question}>
-        {currentQuestion ? currentQuestion.question : "Loading..."}
-              </Text>
-{/*changes here*/}
-        <TextInput id="name" style={styles.input} placeholder="Type your answer" keyboardType="numeric" value={answer} onChangeText={setAnswer}/>
-        <TouchableOpacity style={styles.button} onPress={() => onButtonClick(answer.trim() === currentQuestion?.answer)}>
-            <Text style={styles.buttonText}>Check Answer!</Text>
-        </TouchableOpacity>
-
-{/*changes here*/}
-
-        </View>
-        
+                <View style={styles.optionsContainer}>
+                    {options.map((option) => (
+                        <TouchableOpacity key={option} style={styles.button} onPress={() => onButtonClick(option)}>
+                            <Text style={styles.buttonText}>{option}</Text>
+                        </TouchableOpacity>
+                    ))}
+                </View>
+            </View>
         </>
-    ) 
-    
+    );
 }
 
 const styles = StyleSheet.create({
-  question:{
-    fontSize: 24,
-    color: "#3057c2",
-    textAlign: "center",
-    marginBottom: 30,
-    marginHorizontal: 30
+    container: {
+        flex: 1,
+        justifyContent: "center",
+        alignItems: "center",
+        backgroundColor: "#9ccdff"
+    },
 
-  },
+    question: {
+        fontSize: 24,
+        color: "#3057c2",
+        textAlign: "center",
+        marginBottom: 30,
+        marginHorizontal: 30
+    },
 
-  input: {
-    width: "80%",
-    height: 50,
-    borderColor: "#3057c2",
-    borderWidth: 1,
-    borderRadius: 10,
-    paddingHorizontal: 15,
-    fontSize: 18,
-    textAlign: "center",
-    marginBottom: 20,
-  },
+    optionsContainer: {
+        flexDirection: "row",
+        flexWrap: "wrap",
+        justifyContent: "center"
+    },
 
-  button: {
-    backgroundColor: "#3057c2",
-    paddingVertical: 12,
-    paddingHorizontal: 30,
-    borderRadius: 10,
-    alignItems: "center",
-  },
+    button: {
+        backgroundColor: "#3057c2",
+        paddingVertical: 12,
+        paddingHorizontal: 30,
+        borderRadius: 10,
+        alignItems: "center",
+        margin: 10
+    },
 
-  buttonText: {
-    color: "#ffffff",
-    fontSize: 18,
-    fontWeight: "bold",
-  },
-
+    buttonText: {
+        color: "#ffffff",
+        fontSize: 18,
+        fontWeight: "bold"
+    }
 });

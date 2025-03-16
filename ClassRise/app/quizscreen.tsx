@@ -7,25 +7,13 @@ import { router } from "expo-router";
   };
 
 const questions = [
-{ text: "What grade are you in?", options: ["1st", "2nd", "3rd", "4th", "5th", "6th"],category: "general"  },
-  { text: "Do you find it really hard to sit still or stop fidgeting, even when you're supposed to?", options: ["Yes", "Sometimes", "No"],category: "adhd" },
-  { text: "Do you get distracted easily, even when you're trying to pay attention?", options: ["Yes", "Sometimes", "No"], category: "adhd"},
-  { text: "Do you forget what you're supposed to do, even right after someone tells you?", options: ["Yes", "Sometimes", "No"],category: "adhd" },
+
   { text: "Do you find reading really hard, even when you try your best?", options: ["Yes", "Sometimes", "No"],category: "dyslexia" },
   { text: "Do you mix up letters like 'b' and 'd' or have trouble spelling words correctly?", options: ["Yes", "Sometimes", "No"],category: "dyslexia" },
   { text: "Do you sometimes forget what you just read, even if you understood it while reading?", options: ["Yes", "Sometimes", "No"],category: "dyslexia" },
   { text: "Do numbers feel confusing, or do they seem to move around when you look at them?", options: ["Yes", "Sometimes", "No"],category: "dyscalculia" },
   { text: "Is it hard to remember math facts, like 2 + 3 = 5?", options: ["Yes", "Sometimes", "No"],category: "dyscalculia" },
   { text: "Do you get mixed up when you try to add or subtract in your head?", options: ["Yes", "Sometimes", "No"],category: "dyscalculia" },
-  { text: "Do you start tasks but have trouble finishing them?", options: ["Yes", "Sometimes", "No"], category: "adhd" },
-{ text: "Do you have trouble waiting your turn?", options: ["Yes", "Sometimes", "No"], category: "adhd" },
-{ text: "Do you interrupt others while they're talking?", options: ["Yes", "Sometimes", "No"], category: "adhd" },
-{ text: "Do you lose things often, like homework or pencils?", options: ["Yes", "Sometimes", "No"], category: "adhd" },
-{ text: "Do you feel like your brain is always racing with thoughts?", options: ["Yes", "Sometimes", "No"], category: "adhd" },
-{ text: "Do you find it hard to follow multiple steps in a row?", options: ["Yes", "Sometimes", "No"], category: "adhd" },
-{ text: "Do you often daydream when you should be paying attention?", options: ["Yes", "Sometimes", "No"], category: "adhd" },
-{ text: "Do you feel like you need to move around a lot, even when you're not supposed to?", options: ["Yes", "Sometimes", "No"], category: "adhd" },
-{ text: "Do you struggle to stay organized?", options: ["Yes", "Sometimes", "No"], category: "adhd" },
 { text: "Do you have trouble sounding out new words?", options: ["Yes", "Sometimes", "No"], category: "dyslexia" },
 { text: "Do you find it hard to remember the sounds letters make?", options: ["Yes", "Sometimes", "No"], category: "dyslexia" },
 { text: "Do you skip words or lose your place when reading?", options: ["Yes", "Sometimes", "No"], category: "dyslexia" },
@@ -49,7 +37,6 @@ export default function QuizScreen() {
     const [index, setIndex] = useState(0);
 
     const [responses, setResponses] = useState<{ [key: string]: number }>({
-        adhd: 0,
         dyslexia: 0,
         dyscalculia: 0,
       });

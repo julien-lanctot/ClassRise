@@ -12,46 +12,15 @@ const sections = [
         unit: 1,
         title: "Foundations of Math",
         levels: [
-            { id: 1, title: "Counting and Number Recognition", completed: false },
-            { id: 2, title: "Basic Addition", completed: false },
-            { id: 3, title: "Basic Subtraction", completed: false },
+            { id: 1, title: "Addition", completed: false },
+            { id: 2, title: "Subtraction", completed: false },
+            { id: 3, title: "Multiplication", completed: false },
+            { id: 4, title: "Division", completed: false },
+            {  id: 5, title: "Fractions", completed: false },
         ],
     },
 
-    {
-        section: 1,
-        unit: 2,
-        title: "Operations and Computation",
-        levels: [
-            { id: 4, title: "Multiplication", completed: false },
-            { id: 5, title: "Division", completed: false },
-            {  id: 6, title: "Fractions", completed: false },
-    ],
-},
 
-{
-    section: 2,
-    unit: 1,
-    title: "Advanced Arithmetic and Algebra",
-    levels: [
-        { id: 7, title: "Decimals", completed: false },
-        { id: 8, title: "Percentages", completed: false },
-        { id: 9, title: "Ratios and Proportions", completed: false },
-        { id: 10, title: "Algebra Basics", completed: false },
-    ],
-},
-
-{
-    section: 2,
-    unit: 2,
-    title: "Geometry and Measurement",
-    levels: [
-        { id: 11, title: "Geometry Basics", completed: false },
-      { id: 12, title: "Triangles and Polygons", completed: false },
-      { id: 13, title: "Measurement and Units", completed: false },
-
-    ],
-},
 ];
 
 export default function MathLevelsScreen() {
@@ -138,7 +107,7 @@ const styles = StyleSheet.create({
 
     levelWrapper: {
         alignItems: "center", 
-        marginBottom: 10 
+        marginBottom: 10,
     
     },
 
