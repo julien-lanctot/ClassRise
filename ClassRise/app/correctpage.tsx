@@ -8,43 +8,48 @@ export default function CorrectScreen() {
     };
 
     return (
-        <View style={styles.background}>
+        <ImageBackground 
+            source={require("@/app/Correctbackground.png:\Users\Admin\Documents\Downloads\incorrect .png")} // Change background to your image
+            style={styles.background}
+            resizeMode="cover" // Ensures the image fills the background
+        >
             <View style={styles.container}>
-                <Text style={styles.correctText}>Correct!</Text>
+                <Text style={styles.correctText}>Incorrect...</Text>
                 <Image
                     source={require("@/app/HappyFrog.png")}
                     style={styles.mascot}
-                    resizeMode="contain" // Ensures the image scales properly
+                    resizeMode="contain"
                 />
                 <TouchableOpacity style={styles.button} onPress={onButtonClick}>
                     <Text style={styles.buttonText}>Next Question</Text>
                 </TouchableOpacity>
             </View>
-        </View>
+        </ImageBackground>
     );
 }
 
 const styles = StyleSheet.create({
     background: {
         flex: 1,
-        backgroundColor: "#aaeda1", // New background color
         justifyContent: "center",
         alignItems: "center",
+        width: "100%",
+        height: "100%",
     },
     container: {
         alignItems: "center",
     },
     mascot: {
-        width: 300, // Adjust the width as needed
-        height: 300, // Adjust the height as needed
-        marginBottom: 20, // Space between mascot and button
+        width: 300,
+        height: 300,
+        marginBottom: 20,
     },
     correctText: {
         fontSize: 35,
-        color: "#026e02", // Dark green for better contrast
+        color: "#026e02",
         textAlign: "center",
-        marginBottom: -30, // Space between text and mascot
-        fontWeight: "bold", // Make the text bold
+        marginBottom: -30,
+        fontWeight: "bold",
     },
     button: {
         backgroundColor: "#95de95",
