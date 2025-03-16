@@ -15,7 +15,7 @@ export default function CorrectScreen() {
             resizeMode="cover" // Ensures the image fills the background
         >
             <View style={styles.container}>
-                <Text style={styles.correctText}>Incorrect...</Text>
+                <Text style={styles.correctText}>Correct!</Text>
                 <Image
                     source={require("@/app/HappyFrog.png")}
                     style={styles.mascot}
@@ -47,7 +47,7 @@ const styles = StyleSheet.create({
     },
     correctText: {
         fontSize: 35,
-        color: "#026e02",
+        color: "#ffffff",
         textAlign: "center",
         marginBottom: -30,
         fontWeight: "bold",
