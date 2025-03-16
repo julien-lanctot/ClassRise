@@ -1,3 +1,4 @@
+
 import React from "react";
 import { Text, View, TouchableOpacity, ImageBackground, Image, StyleSheet } from "react-native";
 import { router } from "expo-router";
@@ -9,7 +10,7 @@ export default function CorrectScreen() {
 
     return (
         <ImageBackground 
-            source={require("@/app/Correctbackground.png:\Users\Admin\Documents\Downloads\incorrect .png")} // Change background to your image
+            source={require("@/app/Correctbackground.png")} // Change background to your image
             style={styles.background}
             resizeMode="cover" // Ensures the image fills the background
         >
