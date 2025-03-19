@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Text, View, StyleSheet, TouchableOpacity } from "react-native";
+import { Text, View, StyleSheet, TouchableOpacity, ImageBackground, Image } from "react-native";
 import { useRouter } from "expo-router";
 import { useLocalSearchParams } from "expo-router";
 
@@ -80,12 +80,21 @@ export default function QuestionPage() {
 
     return (
         <>
+        <ImageBackground source={require("./water.png")} style={styles.background} resizeMode="cover">
+        
             <View style={styles.container}>
+
+            <Image
+                    source={require("./mascot.png")}
+                    style={styles.mascot}
+                />
+
                 <Text style={styles.question}>
                     {currentQuestion ? currentQuestion.question : "Loading..."}
                 </Text>
 
                 <View style={styles.optionsContainer}>
+                    
                     {options.map((option) => (
                         <TouchableOpacity key={option} style={styles.button} onPress={() => onButtonClick(option)}>
                             <Text style={styles.buttonText}>{option}</Text>
@@ -93,23 +102,39 @@ export default function QuestionPage() {
                     ))}
                 </View>
             </View>
+            </ImageBackground>
         </>
     );
 }
 
 const styles = StyleSheet.create({
+
+    mascot: {
+        width: 200,
+        height: 200,
+        marginBottom: 75,
+        marginTop: -100,
+    },
+
     container: {
         flex: 1,
         justifyContent: "center",
         alignItems: "center",
-        backgroundColor: "#9ccdff"
+
+    },
+
+    background: {
+        flex: 1,
+        width: "100%",
+        height: "100%",
     },
 
     question: {
-        fontSize: 24,
+        fontSize: 50,
         color: "#3057c2",
         textAlign: "center",
-        marginBottom: 30,
+        marginBottom: 50,
+        marginTop: -50,
         marginHorizontal: 30
     },
 
@@ -130,7 +155,7 @@ const styles = StyleSheet.create({
 
     buttonText: {
         color: "#ffffff",
-        fontSize: 18,
+        fontSize: 20,
         fontWeight: "bold"
     }
 });
