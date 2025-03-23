@@ -2,7 +2,7 @@
   "name": "classrise",
   "main": "expo-router/entry",
   "version": "1.0.0",
-  "homepage": "https://emilyfetco.github.io/ClassRise", 
+  "homepage": "/",
   "scripts": {
     "start": "expo start",
     "web-build": "expo export:web",
